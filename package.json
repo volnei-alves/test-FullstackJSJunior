@@ -1,0 +1,19 @@
+{
+  "name": "test-fullstackjsjunior",
+  "version": "0.0.1",
+  "description": "Projeto de Teste para vaga Junior na empresa Contele",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "author": "Volnei Alves Ferreira",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
