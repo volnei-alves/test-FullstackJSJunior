@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const db = require("../data");
-const { v4: uuidv4 } = require("uuid");
+
 const GetAllUserController = require("../controller/getAllUserController");
 const AddUserController = require("../controller/addUserController");
 const router = Router();

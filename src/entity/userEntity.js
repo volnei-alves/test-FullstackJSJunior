@@ -1,6 +1,6 @@
 module.exports = class UserEntity {
-    constructor(email, senha) {
+    constructor(email, password) {
         this.email = email;
-        this.senha = senha;
+        this.password = password;
     }
 };
