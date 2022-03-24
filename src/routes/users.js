@@ -1,11 +1,23 @@
-import {Router} from "express"
-const router = Router()
+const { Router } = require("express");
+const db = require("../data");
+const { v4: uuidv4 } = require("uuid");
+const GetAllUserController = require("../controller/getAllUserController");
+const AddUserController = require("../controller/addUserController");
+const router = Router();
 
+router.get("/", new GetAllUserController().route);
+router.post("/", new AddUserController().route);
+router.get("/:id", function (req, res) {
+    res.json({ nome: "volnei", email: "volnei" });
+});
+router.put("/:id", function (req, res) {
+    res.json({ nome: "volnei", email: "volnei" });
+});
+router.delete("/", function (req, res) {
+    res.json({ nome: "volnei", email: "volnei" });
+});
+router.delete("/:id", function (req, res) {
+    res.json({ nome: "volnei", email: "volnei" });
+});
 
-router.get("/", function(req, res){
-    res.send("route user")
-})
-
-export default router
-
-
+module.exports = router;

@@ -1,15 +1,19 @@
-import express from 'express'
-import cors from "cors"
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors");
 
-import users from "./routes/users.js"
-import morgan from 'morgan'
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
-const app = express()
+const users = require("./routes/users.js");
 
-app.use(cors())
-app.use(express.json())
-app.use(morgan("dev"))
+const app = express();
 
-app.use('/api/v1', users)
+app.use(cors());
+app.use(express.json());
+app.use(morgan("dev"));
+app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-export default app
+app.use("/api/v1/users", users);
+
+module.exports = app;
