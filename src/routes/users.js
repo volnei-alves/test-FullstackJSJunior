@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const db = require("../data");
 
-const GetAllUserController = require("../controller/getAllUserController");
-const AddUserController = require("../controller/addUserController");
+const GetAllUserController = require("../controller/user/getAllUserController");
+const AddUserController = require("../controller/user/addUserController");
 const router = Router();
 
 router.get("/", new GetAllUserController().route);

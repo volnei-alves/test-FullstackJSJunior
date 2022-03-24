@@ -1,4 +1,4 @@
-const getRepositoryAllUser = require("../repository/getRepositoryAllUsers");
+const getRepositoryAllUser = require("../../repository/user/getRepositoryAllUsers");
 
 module.exports = class GetAllUsers {
     async getAll() {

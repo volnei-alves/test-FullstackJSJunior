@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const addRepositoryUser = require("../repository/AddRepositoryUser");
+const addRepositoryUser = require("../../repository/user/AddRepositoryUser");
 
 module.exports = class AddUser {
     async addUser(email, password) {

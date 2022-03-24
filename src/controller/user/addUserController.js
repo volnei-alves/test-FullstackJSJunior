@@ -1,5 +1,5 @@
 const express = require("express");
-const AddUser = require("../useCase/addUser");
+const AddUser = require("../../useCase/user/addUser");
 
 module.exports = class AddUserController {
     async route(req, res) {

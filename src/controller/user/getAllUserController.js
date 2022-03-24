@@ -1,4 +1,4 @@
-const GetAllUsers = require("../useCase/getAllUsers");
+const GetAllUsers = require("../../useCase/user/getAllUsers");
 
 module.exports = class GetAllUserController {
     async route(req, res) {

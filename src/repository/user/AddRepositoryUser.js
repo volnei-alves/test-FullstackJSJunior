@@ -1,7 +1,7 @@
-const db = require("../data");
+const db = require("../../data");
 const { v4: uuidv4 } = require("uuid");
 
-const UserEntity = require("../entity/userEntity");
+const UserEntity = require("../../entity/userEntity");
 
 module.exports = class addRepositoryUser {
     constructor(email, password) {
