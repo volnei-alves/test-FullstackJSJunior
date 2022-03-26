@@ -13,6 +13,13 @@ module.exports = class HttpResponde {
         };
     }
 
+    static NotModified(mensage) {
+        return {
+            statusCode: 304,
+            mensage: mensage,
+        };
+    }
+
     static BadRequest(mensage) {
         return {
             statusCode: 400,

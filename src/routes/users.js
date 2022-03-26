@@ -1,11 +1,11 @@
 const { Router } = require("express");
 
-const GetAllUserController = require("../controller/user/getAllUserController");
-const AddUserController = require("../controller/user/addUserController");
-const GetUserController = require("../controller/user/getUserController");
-const UpdateUserController = require("../controller/user/updateUserController");
-const DeleteUserController = require("../controller/user/deleteUserController");
-const DeleteAllController = require("../controller/user/deleteAllController");
+const GetAllUserController = require("../controller/user/GetAllUserController");
+const GetUserController = require("../controller/user/GetUserController");
+const AddUserController = require("../controller/user/AddUserController");
+const UpdateUserController = require("../controller/user/UpdateUserController");
+const DeleteUserController = require("../controller/user/DeleteUserController");
+const DeleteAllController = require("../controller/user/DeleteAllController");
 
 const router = Router();
 

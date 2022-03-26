@@ -1,7 +1,7 @@
 const db = require("../../data");
 const { v4: uuidv4 } = require("uuid");
 
-const UserEntity = require("../../entities/userEntity");
+const UserEntity = require("../../entities/UserEntity");
 
 module.exports = class addRepositoryUser {
     constructor(email, password) {
@@ -9,14 +9,14 @@ module.exports = class addRepositoryUser {
         this.password = password;
     }
     async addUser() {
-        const userCreate = new UserEntity(this.email, this.password);
+        const userCreate = new UserEntity(uuidv4(), this.email, this.password).insertUser();
         try {
-            const createUser = await db("users").insert({
-                id: uuidv4(),
+            const response = await db("users").insert({
+                id: userCreate.id,
                 email: userCreate.email,
-                senha: userCreate.password,
+                password: userCreate.password,
             });
-            return createUser;
+            return response;
         } catch (error) {
             return error;
         }

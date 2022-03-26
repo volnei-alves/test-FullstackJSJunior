@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const addRepositoryUser = require("../../repository/user/AddRepositoryUser");
 const schema = require("../../validation/addUserValidate");
-const HttpResponde = require("../../util/HttpResponse");
+const HttpResponse = require("../../util/HttpResponse");
 
 const saltRounds = 10;
 
@@ -16,9 +16,9 @@ module.exports = class AddUser {
         const response = await new addRepositoryUser(email, passwordCripto).addUser();
 
         if (!response.constraint && response.rowCount === 1) {
-            return HttpResponde.Created("User created successfully");
+            return HttpResponse.Ok("Users successfuly deleted");
         }
 
-        return HttpResponde.NotFound(response.constraint);
+        return response;
     }
 };
