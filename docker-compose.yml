@@ -24,8 +24,8 @@ services:
     image: dpage/pgadmin4
     container_name: pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: "volnei@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "volnei123456"
+      PGADMIN_DEFAULT_EMAIL: "example@contele.com"
+      PGADMIN_DEFAULT_PASSWORD: "contele"
     ports:
       - "15432:80"
     depends_on:

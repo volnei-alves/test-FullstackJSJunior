@@ -1,16 +1,16 @@
 const express = require("express");
-const AddUser = require("../../useCase/user/addUser");
+const newUser = require("../../useCase/user/addUser");
 
 module.exports = class AddUserController {
     async route(req, res) {
         const { email, password } = req.body;
 
-        const createUser = await new AddUser().addUser(email, password);
+        const createUser = await new newUser().addUser(email, password);
 
-        if (createUser.code === 403 || createUser.code === 400) {
-            res.status(createUser.code).json(createUser);
+        if (createUser.statusCode === 403 || createUser.statusCode === 400) {
+            res.status(createUser.statusCode).json(createUser);
         } else {
-            res.status(createUser.code).json(createUser);
+            res.status(createUser.statusCode).json(createUser);
         }
     }
 };
