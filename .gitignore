@@ -2,3 +2,5 @@
 
 package-lock.json
 .env
+jest.config.js
+__tests__
