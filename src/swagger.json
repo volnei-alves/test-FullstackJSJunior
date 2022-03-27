@@ -1,101 +1,220 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "User Registration API for authentication service",
+        "description": "Documentação de Api de usúarios",
         "version": "1.0.0",
-        "title": "Users Registration"
+        "title": "Api Usúarios"
     },
     "host": "localhost:3001",
-    "basePath": "/api/v1/",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "User",
+            "description": "Operações sobre o usuário"
+        }
+    ],
     "paths": {
-        "/users/": {
+        "/users": {
             "get": {
-                "tags": ["Get Users"],
-                "summary": "Get All users",
-                "description": "Route returns an array of users",
+                "tags": ["User"],
+                "summary": "Lista todos usúarios",
+                "description": "Lista todos os usúarios cadastrados na bonco de dados",
+                "operationId": "getUsers",
+                "produces": ["application/json"],
                 "responses": {
-                    "401": {
-                        "description": "Unauthorized"
-                    },
                     "200": {
-                        "description": "ok"
+                        "description": "Operação Realizada com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "400": {
+                        "description": "servidor não entendeu a requisição pois está com uma sintaxe inválida"
+                    },
+                    "404": {
+                        "description": "O servidor não pode encontrar o recurso solicitado"
                     }
                 }
             },
-
             "post": {
-                "tags": ["Get Users"],
-                "summary": "User Registration",
-                "description": "Register new user in the database",
+                "tags": ["User"],
+                "summary": "Criar único usúario",
+                "description": "Adiciona novo usúario",
+                "operationId": "createUser",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Objeto de usuário criado",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/newUser"
+                        }
+                    }
+                ],
                 "responses": {
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "200": {
-                        "description": "ok"
+                    "default": {
+                        "description": "successful operation"
                     }
                 }
             },
-
             "delete": {
-                "tags": ["Get Users"],
-                "summary": "Delete All Users",
-                "description": "Delete all database users",
+                "tags": ["User"],
+                "summary": "Deleta todos os usúarios",
+                "description": "Excluir todos os usúarios da banco de dados",
+                "operationId": "deleteUser",
+                "produces": ["application/json"],
                 "responses": {
-                    "401": {
-                        "description": "Unauthorized"
+                    "400": {
+                        "description": "servidor não entendeu a requisição pois está com uma sintaxe inválida"
                     },
-                    "200": {
-                        "description": "ok"
+                    "404": {
+                        "description": "O servidor não pode encontrar o recurso solicitado"
                     }
                 }
             }
         },
-
-        "/users/{getUserId}": {
+        "/users/{id}": {
             "get": {
-                "tags": ["Get Users"],
-                "summary": "Get User id",
-                "description": "Route returns a user by id",
+                "tags": ["User"],
+                "summary": "Lista único usúario",
+                "description": "",
+                "operationId": "getUser",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "O ID que precisa ser buscado",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "responses": {
-                    "401": {
-                        "description": "Unauthorized"
-                    },
                     "200": {
-                        "description": "ok"
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/getUser"
+                        }
+                    },
+                    "400": {
+                        "description": "servidor não entendeu a requisição pois está com uma sintaxe inválida"
+                    },
+                    "404": {
+                        "description": "O servidor não pode encontrar o recurso solicitado"
                     }
                 }
-            }
-        },
-
-        "/users/{putUserId}": {
+            },
             "put": {
-                "tags": ["Get Users"],
-                "summary": "Update User by id",
-                "description": "Update user data",
-                "responses": {
-                    "401": {
-                        "description": "Unauthorized"
+                "tags": ["User"],
+                "summary": "Altera único Usúario",
+                "description": "Atualizar Usúario passando seu id.",
+                "operationId": "updateUser",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID que precisa ser atualizado",
+                        "required": true,
+                        "type": "string"
                     },
-                    "200": {
-                        "description": "ok"
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Objeto de usuário atualizado",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserUpdate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "servidor não entendeu a requisição pois está com uma sintaxe inválida"
+                    },
+                    "404": {
+                        "description": "O servidor não pode encontrar o recurso solicitado"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["User"],
+                "summary": "Deleta único Usúario",
+                "description": "Será excluido do banco de dados o usúario informado pelo id.",
+                "operationId": "deleteUserId",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Passar ID do usúario que será excluido",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "servidor não entendeu a requisição pois está com uma sintaxe inválida"
+                    },
+                    "404": {
+                        "description": "O servidor não pode encontrar o recurso solicitado"
                     }
                 }
             }
+        }
+    },
+    "definitions": {
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
         },
-
-        "/users/{deleteUserId}": {
-            "delete": {
-                "tags": ["Get Users"],
-                "summary": "Delete user by id",
-                "description": "Delete user by id",
-                "responses": {
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "200": {
-                        "description": "ok"
-                    }
+        "UserUpdate": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "newUser": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "example@gmail.com"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "123456"
+                }
+            }
+        },
+        "getUser": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
                 }
             }
         }

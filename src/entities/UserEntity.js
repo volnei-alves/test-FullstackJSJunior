@@ -15,6 +15,7 @@ module.exports = class UserEntity {
         return {
             id: this.id,
             email: this.email,
+            password: this.password,
         };
     }
 };

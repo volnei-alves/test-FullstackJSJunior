@@ -16,7 +16,7 @@ module.exports = class AddUser {
         const response = await new addRepositoryUser(email, passwordCripto).addUser();
 
         if (!response.constraint && response.rowCount === 1) {
-            return HttpResponse.Ok("Users successfuly deleted");
+            return HttpResponse.Ok("Users successfuly created");
         }
 
         return response;

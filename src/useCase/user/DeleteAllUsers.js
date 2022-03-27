@@ -5,9 +5,9 @@ module.exports = class DeleteAllUsers {
     async delete() {
         const response = await new DeleteRepositoryAllUsers().delete();
 
-        if (response > 0) HttpResponse.Ok("Users successfuly deleted");
+        if (response > 0) return HttpResponse.Ok("Users successfuly deleted");
         if (response === 0) {
-            HttpResponse.NotModified("Empty database no data has changed");
+            return HttpResponse.NotModified("Empty database no data has changed");
         }
     }
 };
