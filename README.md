@@ -36,26 +36,14 @@ Docker pgAdmin
 Url da aplicação local
 ##### http://localhost:3001/api/v1/docs/
 #
-
-```http
-  //Lista Usúarios
-  GET /api/v1/users
-
-  //Lista Usúario  
-  GET /api//v1/users/${id}
-
-  //Cadastra novo usúario
-  POST /api/v1/users
-
-  //Atualiza Usúario
-  PUT /api/v1/users/${id}
-
-  //Exclui usúario  
-  DELETE /api/v1/users/${id}
-  
-  //Exclui todos os usúarios  
-  DELETE /api/v1/users
-```
+HTTP | ROUTE | BODY | DESCRIÇÃO |
+| --- | ------ | ------ |  ------ |
+| GET | /api/v1/users |  | Listar todos usuarios
+| GET | /api/v1/users/user_id | | Listar único usuário
+| POST | /api/v1/users | JSON (email,senha) | Criar único usuário
+| PUT | /api/v1/users/user_id | JSON (email,senha) | Alterar único usuário
+| DELETE | /api/v1/users | | Deletar todos usuarios
+| DELETE | /api/v1/users/user_id | | Deletar único usuário
 
 
 
