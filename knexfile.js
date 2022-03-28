@@ -1,9 +1,9 @@
 module.exports = {
-    client: "postgresql",
+    client: "pg",
     connection: {
-        database: "db_user",
         user: "volnei",
         password: "12345",
+        database: "db_user",
     },
     pool: {
         min: 2,
@@ -11,5 +11,6 @@ module.exports = {
     },
     migrations: {
         tableName: "knex_migrations",
+        directory: __dirname + "/src/data/migrations",
     },
 };

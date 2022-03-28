@@ -7,36 +7,14 @@ services:
     depends_on:
       - db
   db:
-    image: postgres:12.4-alpine
-    container_name: postgres
+    image: postgres:14.2
     environment:
       POSTGRES_USER: volnei
-      POSTGRES_PASSWORD: 12345
+      POSTGRES_PASSWORD: '12345'
       POSTGRES_DB: db_user
     ports:
       - "5432:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
-    networks:
-      - network
-
-  pgadmin-compose:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "example@contele.com"
-      PGADMIN_DEFAULT_PASSWORD: "contele"
-    ports:
-      - "15432:80"
-    depends_on:
-      - db
-    networks:
-      - network
-
-networks:
-  network:
-    driver: bridge
-
 volumes:
   db-data:
-    external: true
