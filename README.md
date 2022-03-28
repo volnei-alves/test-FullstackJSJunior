@@ -34,12 +34,9 @@ Clone projeto git
 
 
 ## Documentação da API
-
-Docker pgAdmin
-##### http://localhost:15432/browser/
 #
 Url da aplicação local
-##### http://localhost:3001/api/v1/docs/
+##### http://localhost:3000/api/v1/docs/
 #
 HTTP | ROUTE | BODY | DESCRIÇÃO |
 | --- | ------ | ------ |  ------ |
