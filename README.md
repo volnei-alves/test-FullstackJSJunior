@@ -24,6 +24,11 @@ Clone projeto git
   cd test-FullstackJSJunior
   
   docker-compose -up -d
+  
+  knex migrate:make init
+  
+  knex migrate:latest
+  
 ```
 
 
