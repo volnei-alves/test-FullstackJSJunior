@@ -5,7 +5,8 @@
     "main": "server.js",
     "scripts": {
         "start": "NODE_ENV=tiny node server.js",
-        "dev": "NODE_ENV=dev nodemon server.js"
+        "dev": "NODE_ENV=dev nodemon server.js",
+        "migrate": "knex migrate:latest"
     },
     "author": "Volnei Alves Ferreira",
     "license": "ISC",

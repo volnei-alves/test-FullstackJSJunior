@@ -1,11 +1,13 @@
-FROM node:latest
+FROM node:alpine
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
 
+COPY . .
+
 EXPOSE 3001
 
-CMD npm start
+CMD ["npm", "start"]

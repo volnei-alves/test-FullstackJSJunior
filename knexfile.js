@@ -1,6 +1,7 @@
 module.exports = {
     client: "pg",
     connection: {
+        host: "db",
         user: "volnei",
         password: "12345",
         database: "db_user",

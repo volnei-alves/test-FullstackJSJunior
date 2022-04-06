@@ -2,12 +2,21 @@ version: "3.8"
 services:
   app:
     build: .
+    container_name: app
+    command: sh -c "npm run migrate && npm start"
     ports:
       - "3001:3001"
+    volumes:
+      - .:/usr/app    
+    links:
+      - db 
     depends_on:
       - db
+    environment:
+      DATABASE_URL: host.docker.internal
   db:
     image: postgres:14.2
+    container_name: database_user
     environment:
       POSTGRES_USER: volnei
       POSTGRES_PASSWORD: '12345'
