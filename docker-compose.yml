@@ -3,7 +3,7 @@ services:
   app:
     build: .
     container_name: app
-    command: sh -c "npm run migrate && npm start"
+    command: sh -c "npm start"
     ports:
       - "3001:3001"
     volumes:

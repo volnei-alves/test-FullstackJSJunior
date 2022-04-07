@@ -9,7 +9,7 @@ module.exports = class AddUser {
     async addUser(email, password) {
         const { error } = schema.validate({ email: email, password: password });
 
-        if (error) return HttpResponde.BadRequest(error.message);
+        if (error) return HttpResponse.BadRequest(error.message);
 
         const passwordCripto = await bcrypt.hash(password, saltRounds);
 
@@ -19,6 +19,6 @@ module.exports = class AddUser {
             return HttpResponse.Ok("Users successfuly created");
         }
 
-        return response;
+        return HttpResponse.BadRequest(response.detail);
     }
 };

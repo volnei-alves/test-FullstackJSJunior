@@ -2,6 +2,7 @@ module.exports = {
     client: "pg",
     connection: {
         host: "db",
+        port: 5432,
         user: "volnei",
         password: "12345",
         database: "db_user",
@@ -12,6 +13,6 @@ module.exports = {
     },
     migrations: {
         tableName: "knex_migrations",
-        directory: __dirname + "/src/data/migrations",
+        directory: __dirname + "/data/migrations",
     },
 };

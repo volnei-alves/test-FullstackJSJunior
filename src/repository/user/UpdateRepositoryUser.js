@@ -1,4 +1,4 @@
-const db = require("../../data");
+const db = require("../../../data");
 const UserEntity = require("../../entities/UserEntity");
 
 module.exports = class UpdateRepositoryUser {

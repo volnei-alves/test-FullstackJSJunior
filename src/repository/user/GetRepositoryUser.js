@@ -1,4 +1,4 @@
-const db = require("../../data");
+const db = require("../../../data");
 const UserEntity = require("../../entities/UserEntity");
 const { v4: uuidv4, validate } = require("uuid");
 

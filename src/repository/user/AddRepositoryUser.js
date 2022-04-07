@@ -1,4 +1,4 @@
-const db = require("../../data");
+const db = require("../../../data");
 const { v4: uuidv4 } = require("uuid");
 
 const UserEntity = require("../../entities/UserEntity");
