@@ -52,6 +52,4 @@ HTTP | ROUTE | BODY | DESCRIÇÃO |
 - [@volneialves](https://github.com/volnei-alves)
 
 
-## 🚀 Sobre mim
-Eu sou uma pessoa desenvolvedora full-stack, porém gosto mais de back-end
 
